@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RubyHome</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css?v=8">
+    <script src="js/script.js?v=4" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <a class="header__logo" href="index.html" aria-label="RubyHome — Home">
+          <img src="assets/img/logo.svg" width="182" height="45" alt="RubyHome">
+        </a>
+        <button class="header__toggle" type="button" aria-expanded="false" aria-controls="header-menu" hidden>
+          Menu
+        </button>
+        <div class="header__menu" id="header-menu">
+          <nav class="header__nav" aria-label="Main navigation">
+            <ul class="header__list">
+              <li><a class="header__link" href="#home" aria-current="location">Home</a></li>
+              <li><a class="header__link" href="#properties">Properties</a></li>
+              <li><a class="header__link" href="#about">About us</a></li>
+              <li><a class="header__link" href="#reviews">Reviews</a></li>
+            </ul>
+          </nav>
+          <button class="header__contact" type="button">Contact us</button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="hero" id="home" aria-labelledby="hero-title" lang="en">
+        <div class="container hero__container">
+          <div class="hero__content">
+            <h1 class="hero__title" id="hero-title">Find the perfect place to stay with your family</h1>
+            <p class="hero__description">Buying a home is a life-changing experience, so shouldn’t your real estate agent be a life changer</p>
+            <button class="hero__button" type="button">Leave request</button>
+          </div>
+          <img class="hero__image" src="assets/img/image.png" width="484" height="615" alt="Modern building with blue glass facades and yellow architectural details" fetchpriority="high">
+        </div>
+      </section>
+      <section class="partners" aria-labelledby="partners-title" lang="en">
+        <div class="container">
+          <h2 class="partners__title" id="partners-title">Our Partners</h2>
+          <ul class="partners__list">
+            <li class="partners__item">
+              <img class="partners__logo" src="assets/img/C1rvyMVdu8-removebg-preview%20(1)%202.png" width="129" height="70" alt="Biotech development" loading="lazy">
+            </li>
+            <li class="partners__item">
+              <img class="partners__logo" src="assets/img/jaFnKKhNc2-removebg-preview%202.png" width="202" height="70" alt="Express" loading="lazy">
+            </li>
+            <li class="partners__item">
+              <img class="partners__logo" src="assets/img/PejBEGRRHr-removebg-preview%20(1)%201.png" width="87" height="70" alt="Smilehome" loading="lazy">
+            </li>
+            <li class="partners__item">
+              <img class="partners__logo" src="assets/img/qGcJsIZ3cy-removebg-preview%20(1)%203.png" width="162" height="70" alt="Connect" loading="lazy">
+            </li>
+            <li class="partners__item">
+              <img class="partners__logo" src="assets/img/6L21Bmus4K-removebg-preview%20(1)%202.png" width="153" height="70" alt="Homebuild" loading="lazy">
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section class="properties" id="properties" aria-labelledby="properties-title" lang="en">
+        <div class="container">
+          <h2 class="properties__title" id="properties-title">Popular Properties</h2>
+          <ul class="properties__grid"></ul>
+        </div>
+      </section>
+      <template id="property-template">
+        <li class="properties__item">
+          <article class="property-card">
+            <img class="property-card__image" width="724" height="642" loading="lazy" decoding="async" sizes="(min-width: 1178px) 362px, (min-width: 1100px) calc((100vw - 92px) / 3), (min-width: 760px) calc((100vw - 62px) / 2), calc(100vw - 32px)">
+            <div class="property-card__content">
+              <h3 class="property-card__title"></h3>
+              <p class="property-card__address"><img src="assets/icons/01.svg" width="16" height="20" alt=""><span>East London</span></p>
+              <ul class="property-card__features" aria-label="Property features">
+                <li class="property-card__feature"><img src="assets/icons/Group%20312.svg" width="22" height="20" alt=""><span>6<span class="visually-hidden"> bedrooms</span></span></li>
+                <li class="property-card__feature"><img src="assets/icons/Group%20292.svg" width="22" height="20" alt=""><span>2<span class="visually-hidden"> kitchens</span></span></li>
+                <li class="property-card__feature"><img src="assets/icons/Group%20290.svg" width="22" height="20" alt=""><span>3<span class="visually-hidden"> bathrooms</span></span></li>
+              </ul>
+              <div class="property-card__footer">
+                <p class="property-card__price"></p>
+                <button class="property-card__button" type="button">Leave request</button>
+              </div>
+            </div>
+          </article>
+        </li>
+      </template>
+    </main>
+  </body>
+</html>
