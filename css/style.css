@@ -429,3 +429,28 @@ button {
   }
 }
 
+
+.reviews { padding: 80px 0; font-family: 'Poppins', sans-serif; color: #030a1b; }
+.reviews__eyebrow { margin: 0 0 10px; color: #fe753f; text-align: center; text-transform: uppercase; font-size: 16px; font-weight: 600; letter-spacing: 1.28px; }
+.reviews__title { margin: 0 0 40px; text-align: center; font-size: clamp(28px, 4vw, 44px); line-height: 1.5; font-weight: 600; }
+.reviews__slider { padding-bottom: 64px; }
+.reviews__card { box-sizing: border-box; height: auto; min-height: 260px; padding: 28px; border: 2px solid rgb(254 117 63 / 10%); border-radius: 10px; background: #fff; }
+.reviews__author { display: flex; align-items: center; gap: 30px; position: relative; padding-right: 64px; min-height: 74px; }
+.reviews__avatar { flex: 0 0 74px; width: 74px; height: 74px; border-radius: 50%; object-fit: cover; }
+.reviews__name { margin: 0 0 8px; font-size: 22px; line-height: 1.5; font-weight: 600; }
+.reviews__role { margin: 0; font-size: 16px; line-height: 1.5; opacity: .7; }
+.reviews__quote { position: absolute; right: 0; top: 5px; width: 64px; height: 57px; opacity: .1; transform: rotate(180deg); }
+.reviews__text { margin: 30px 0 0; font-size: 16px; line-height: 1.5; opacity: .7; }
+.reviews__pagination { bottom: 0 !important; display: flex; align-items: center; justify-content: center; gap: 10px; }
+.reviews__pagination .swiper-pagination-bullet { border: 0; padding: 0; margin: 0 !important; width: 12px; height: 12px; background: #ededed; opacity: 1; cursor: pointer; }
+.reviews__pagination .swiper-pagination-bullet-active { background: #2e6eff; }
+.reviews__pagination button:focus-visible { outline: 3px solid #2e6eff; outline-offset: 4px; }
+@media (max-width: 479px) {
+  .reviews__card { padding: 22px 18px; }
+  .reviews__author { gap: 14px; padding-right: 0; }
+  .reviews__name { font-size: 20px; }
+  .reviews__role { font-size: 13px; }
+  .reviews__author { padding-bottom: 64px; }
+  .reviews__quote { top: 84px; }
+}
+@media (min-width: 800px) { .reviews { padding: 120px 0; } .reviews__title { margin-bottom: 70px; } }
