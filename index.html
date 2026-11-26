@@ -6,9 +6,9 @@
     <title>RubyHome</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-    <link rel="stylesheet" href="css/style.css?v=9">
+    <link rel="stylesheet" href="css/style.css?v=10">
     <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
-    <script src="js/script.js?v=5" defer></script>
+    <script src="js/script.js?v=6" defer></script>
   </head>
   <body>
     <header class="header">
@@ -114,6 +114,18 @@
             <div class="swiper-pagination reviews__pagination"></div>
           </div>
         </div>
+      </section>
+      <section class="subscribe container" aria-labelledby="subscribe-title" lang="en">
+        <h2 class="subscribe__title" id="subscribe-title">Get listed your home as a owner</h2>
+        <p class="subscribe__description">Here is a list of the greatest real estate company slogans of all-time. These catchy slogans are followed by the Greatest Real Estate.</p>
+        <form class="subscribe__form" novalidate>
+          <label class="visually-hidden" for="subscribe-email">Email address</label>
+          <div class="subscribe__field">
+            <input class="subscribe__input" id="subscribe-email" name="email" type="email" autocomplete="email" placeholder="Enter email address" aria-describedby="subscribe-error" required>
+            <button class="subscribe__button" type="submit">Subscribe</button>
+          </div>
+          <p class="subscribe__error" id="subscribe-error" aria-live="polite"></p>
+        </form>
       </section>
       <template id="property-template">
         <li class="properties__item">

@@ -158,3 +158,43 @@ if (reviewsSlider && typeof Swiper !== 'undefined') {
     on: { init: handleReviewsUpdate, slideChangeTransitionEnd: handleReviewsUpdate, paginationUpdate: handleReviewsUpdate, resize: handleReviewsUpdate },
   });
 }
+
+
+const subscribeForm = document.querySelector('.subscribe__form');
+if (subscribeForm) {
+  const emailInput = subscribeForm.querySelector('.subscribe__input');
+  const subscribeButton = subscribeForm.querySelector('.subscribe__button');
+  const emailError = subscribeForm.querySelector('.subscribe__error');
+  let isSending = false;
+  const handleEmailInput = () => {
+    emailInput.removeAttribute('aria-invalid');
+    emailError.textContent = '';
+  };
+  const handleSubscribeSubmit = async (event) => {
+    event.preventDefault();
+    if (isSending) return;
+    emailInput.value = emailInput.value.trim();
+    if (!emailInput.validity.valid) {
+      emailInput.setAttribute('aria-invalid', 'true');
+      emailError.textContent = emailInput.validity.valueMissing ? 'Please enter your email address.' : 'Please enter a valid email address.';
+      emailInput.focus();
+      return;
+    }
+    handleEmailInput();
+    isSending = true;
+    subscribeButton.disabled = true;
+    subscribeForm.setAttribute('aria-busy', 'true');
+    // Demo only: no network request or storage of the email address.
+    try {
+      await new Promise((resolve) => window.setTimeout(resolve, 600));
+      window.alert('Your email has been sent');
+      subscribeForm.reset();
+    } finally {
+      isSending = false;
+      subscribeButton.disabled = false;
+      subscribeForm.removeAttribute('aria-busy');
+    }
+  };
+  emailInput.addEventListener('input', handleEmailInput);
+  subscribeForm.addEventListener('submit', handleSubscribeSubmit);
+}

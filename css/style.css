@@ -454,3 +454,22 @@ button {
   .reviews__quote { top: 84px; }
 }
 @media (min-width: 800px) { .reviews { padding: 120px 0; } .reviews__title { margin-bottom: 70px; } }
+
+.subscribe { margin-bottom: 80px; padding: 70px 32px; border-radius: 10px; background: #453e89 url('../assets/img/subscribe.png') center / cover no-repeat; color: #fff; text-align: center; font-family: 'Poppins', sans-serif; }
+.subscribe__title { margin: 0 0 15px; font-size: 44px; line-height: 1.3; font-weight: 500; overflow-wrap: anywhere; }
+.subscribe__description { margin: 0 auto 70px; max-width: 1000px; font-size: 44px; line-height: 1.4; font-weight: 400; opacity: .7; overflow-wrap: anywhere; }
+.subscribe__form { max-width: 740px; margin: 0 auto; }
+.subscribe__field { position: relative; border-radius: 12px; background: #fff; }
+.subscribe__input { display: block; box-sizing: border-box; width: 100%; height: 70px; border: 2px solid transparent; border-radius: 12px; padding: 0 200px 0 30px; color: #030a1b; background: transparent; font: 400 16px 'Poppins', sans-serif; }
+.subscribe__input::placeholder { color: #85858f; opacity: 1; }
+.subscribe__input[aria-invalid="true"] { border-color: #b42318; }
+.subscribe__button { position: absolute; top: 7px; right: 7px; padding: 16px 40px; border: 0; border-radius: 8px; background: #2e6eff; color: #fff; font: 500 16px/24px 'Poppins', sans-serif; cursor: pointer; }
+.subscribe__button:hover { background: #2456d6; }
+.subscribe__button:disabled { opacity: .65; cursor: wait; }
+.subscribe__error { min-height: 24px; margin: 8px 0 0; text-align: left; color: #fff; font-size: 16px; }
+@media (max-width: 479px) {
+  .subscribe { padding: 45px 18px; }
+  .subscribe__field { background: transparent; }
+  .subscribe__input { padding: 0 20px 0 30px; background: #fff; }
+  .subscribe__button { position: static; width: 100%; margin-top: 10px; }
+}
