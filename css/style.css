@@ -1,3 +1,5 @@
+@font-face { font-family: 'DM Sans'; src: url('../assets/fonts/dm-sans-regular.woff2') format('woff2'); font-style: normal; font-weight: 400; font-display: swap; }
+
 @font-face {
   font-family: 'Poppins';
   src: url('../assets/fonts/poppins-semibold.woff2') format('woff2');
@@ -476,6 +478,6 @@ button {
 
 @media (min-width: 1178px) { .subscribe { width: 1146px; height: 403px; } }
 
-.footer { background: #f5f5f5; font-family: 'Poppins', sans-serif; }
+.footer { background: #f5f5f5; font-family: 'DM Sans', sans-serif; }
 .footer__container { min-height: 164px; display: flex; align-items: center; justify-content: center; padding-top: 24px; padding-bottom: 24px; }
 .footer__copyright { margin: 0; color: #030a1b; opacity: .7; font-size: 16px; line-height: 1.5; font-weight: 400; text-align: center; overflow-wrap: anywhere; }
