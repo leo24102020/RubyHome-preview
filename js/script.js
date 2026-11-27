@@ -246,6 +246,10 @@ if (requestModal) {
     return digits.slice(0, 11);
   };
 
+  const handlePhoneValidation = () => {
+    setRequestError(phoneInput, /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phoneInput.value) ? '' : 'Error message');
+  };
+
   const handlePhoneInput = () => {
     const oldValue = phoneInput.value;
     const oldCaret = phoneInput.selectionStart ?? oldValue.length;
@@ -259,7 +263,7 @@ if (requestModal) {
     }
     if (oldCaret === oldValue.length) caret = phoneInput.value.length;
     phoneInput.setSelectionRange(caret, caret);
-    setRequestError(phoneInput, '');
+    handlePhoneValidation();
   };
 
   const handlePhoneBeforeInput = (event) => {
@@ -283,7 +287,7 @@ if (requestModal) {
       const caret = Math.min(index, phoneInput.value.length);
       phoneInput.setSelectionRange(caret, caret);
     }
-    setRequestError(phoneInput, '');
+    handlePhoneValidation();
   };
 
   const validateRequest = () => {
@@ -294,7 +298,7 @@ if (requestModal) {
       && /^[\p{Script=Cyrillic}\p{Script=Latin}\s'’\-]+$/u.test(nameInput.value)
       && (nameInput.value.match(/['’\-]/g) || []).length <= 1;
     setRequestError(nameInput, validName ? '' : 'Enter a name using Cyrillic or Latin letters and at most one hyphen or apostrophe.');
-    setRequestError(phoneInput, /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/.test(phoneInput.value) ? '' : 'Enter a complete phone number: +7 (999) 999-99-99.');
+    handlePhoneValidation();
     setRequestError(emailInput, emailInput.validity.valid ? '' : 'Please enter a valid email address.');
     setRequestError(consentInput, consentInput.checked ? '' : 'Please agree to the Privacy Policy.');
     const firstInvalid = requestForm.querySelector('[aria-invalid="true"]');
@@ -419,5 +423,6 @@ if (requestModal) {
   requestForm.addEventListener('submit', handleRequestSubmit);
   requestForm.addEventListener('input', handleRequestFieldInput);
   phoneInput.addEventListener('input', handlePhoneInput);
+  phoneInput.addEventListener('blur', handlePhoneValidation);
   phoneInput.addEventListener('beforeinput', handlePhoneBeforeInput);
 }
