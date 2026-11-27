@@ -552,3 +552,12 @@ body.has-request-modal { position: fixed; width: 100%; overflow: hidden; }
 .privacy { padding-top: 70px; font-family: 'Poppins', sans-serif; color: #030a1b; }
 .privacy__title { margin: 0 0 32px; font-size: 61px; line-height: 1.2; font-weight: 600; }
 .privacy__text { margin: 0 0 140px; font-size: 18px; line-height: 1.5; font-weight: 500; opacity: .7; }
+
+.privacy__text { overflow-wrap: anywhere; }
+.privacy__text p { margin: 0 0 24px; }
+.privacy__text h2, .privacy__text h3 { font: inherit; margin: 32px 0 24px; }
+.privacy__text > :first-child { margin-top: 0; }
+.privacy__text > :last-child { margin-bottom: 0; }
+.privacy__list { margin: 0 0 24px; padding: 0; list-style: none; }
+.privacy__list li { margin-bottom: 12px; }
+.privacy__text a { color: inherit; text-underline-offset: 3px; }
