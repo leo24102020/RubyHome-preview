@@ -216,6 +216,7 @@ button {
 }
 
 .properties__title {
+  text-align: center;
   margin: 0 0 70px;
   font-size: 44px;
   font-weight: 600;
