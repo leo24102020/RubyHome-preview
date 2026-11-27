@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy — RubyHome</title>
+    <meta name="description" content="Страница политики конфиденциальности RubyHome. Временный текст.">
+    <base href="../">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/style.css?v=19">
+    <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+    <script src="js/script.js?v=8" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <a class="header__logo" href="index.html" aria-label="RubyHome — Home">
+          <img src="assets/img/logo.svg" width="182" height="45" alt="RubyHome">
+        </a>
+        <button class="header__toggle" type="button" aria-expanded="false" aria-controls="header-menu" hidden>
+          Menu
+        </button>
+        <div class="header__menu" id="header-menu">
+          <nav class="header__nav" aria-label="Main navigation">
+            <ul class="header__list">
+              <li><a class="header__link" href="index.html#home">Home</a></li>
+              <li><a class="header__link" href="index.html#properties">Properties</a></li>
+              <li><a class="header__link" href="index.html#about">About us</a></li>
+              <li><a class="header__link" href="index.html#reviews">Reviews</a></li>
+            </ul>
+          </nav>
+          <button class="header__contact" type="button">Contact us</button>
+        </div>
+      </div>
+    </header>
+    <main class="privacy container">
+      <h1 class="privacy__title" lang="en">Privacy Policy</h1>
+      <p class="privacy__text">текст политики</p>
+    </main>
+    <footer class="footer" lang="en">
+      <div class="container footer__container">
+        <p class="footer__copyright">© 2025 RubyHome. All rights reserved</p>
+      </div>
+    </footer>
+    <dialog class="request-modal" aria-labelledby="request-title" lang="en">
+      <button class="request-modal__close" type="button" aria-label="Close request dialog"></button>
+      <h2 class="request-modal__title" id="request-title">Leave a request<br>and we will call you soon</h2>
+      <form class="request-form" novalidate>
+        <input type="hidden" name="propertyId">
+        <div class="request-form__field">
+          <label for="request-name">Enter name</label>
+          <input id="request-name" name="name" type="text" autocomplete="name" placeholder="Example: Mark" required aria-describedby="request-name-error">
+          <p class="request-form__error" id="request-name-error" aria-live="polite"></p>
+        </div>
+        <div class="request-form__field">
+          <label for="request-phone">Enter phone</label>
+          <input id="request-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="+7 (999) 999-99-99" required aria-describedby="request-phone-error">
+          <p class="request-form__error" id="request-phone-error" aria-live="polite"></p>
+        </div>
+        <div class="request-form__field">
+          <label for="request-email">Enter email address</label>
+          <input id="request-email" name="email" type="email" autocomplete="email" placeholder="email@example.com" aria-describedby="request-email-error">
+          <p class="request-form__error" id="request-email-error" aria-live="polite"></p>
+        </div>
+        <fieldset class="request-form__choices">
+          <legend>I want to</legend>
+          <div class="request-form__options">
+            <label><input type="radio" name="deal" value="buy" checked><span>Buy</span></label>
+            <label><input type="radio" name="deal" value="rent"><span>Rent</span></label>
+            <label><input type="radio" name="deal" value="sell"><span>Sell</span></label>
+          </div>
+        </fieldset>
+        <div>
+          <label class="request-form__consent"><input type="checkbox" name="consent" required aria-describedby="request-consent-error"><span>I agree to <a href="privacy/" target="_blank" rel="noopener">Privacy Policy<span class="visually-hidden"> (opens in a new tab)</span></a></span></label>
+          <p class="request-form__error" id="request-consent-error" aria-live="polite"></p>
+        </div>
+        <button class="request-form__submit" type="submit">Submit</button>
+        <p class="request-form__status" role="status"></p>
+      </form>
+      <p class="request-modal__success" role="status" tabindex="-1" hidden>Your request has been sent</p>
+    </dialog>
+  </body>
+</html>

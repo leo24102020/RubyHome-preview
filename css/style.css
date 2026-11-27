@@ -548,3 +548,7 @@ body.has-request-modal { position: fixed; width: 100%; overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .request-modal::backdrop, .request-modal.is-closing::backdrop { animation: none; } }
 
 .request-modal__success:focus { outline: none; }
+
+.privacy { padding-top: 70px; font-family: 'Poppins', sans-serif; color: #030a1b; }
+.privacy__title { margin: 0 0 32px; font-size: 61px; line-height: 1.2; font-weight: 600; }
+.privacy__text { margin: 0 0 140px; font-size: 18px; line-height: 1.5; font-weight: 500; opacity: .7; }
