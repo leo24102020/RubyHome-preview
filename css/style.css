@@ -606,3 +606,17 @@ button { transition: background-color .3s ease, color .3s ease, border-color .3s
 
 .scroll-reveal--pending { opacity: 0; }
 @media (prefers-reduced-motion: reduce) { .scroll-reveal--pending { opacity: 1; } }
+
+button.is-touch-pressed:not(:disabled) { background-color: #fff; color: #2e6eff; border-color: #2e6eff; box-shadow: inset 0 0 0 1px #2e6eff; transform: scale(1.1); }
+button.header__toggle.is-touch-pressed:not(:disabled), button.header__contact.is-touch-pressed:not(:disabled), button.hero__button.is-touch-pressed:not(:disabled) { box-shadow: none; }
+.request-modal__close.is-touch-pressed::before, .request-modal__close.is-touch-pressed::after { background-color: #2e6eff; }
+.request-form__options label.is-touch-pressed span { background-color: #fff; color: #2e6eff; border-color: #2e6eff; transform: scale(1.1); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero__button.is-touch-pressed { translate: var(--touch-magnet-x, 0px) var(--touch-magnet-y, 0px); }
+}
+@media (hover: none) and (prefers-reduced-motion: no-preference) {
+  .hero__magnet .hero__button { transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease, translate .22s cubic-bezier(.2,.8,.2,1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  button.is-touch-pressed:not(:disabled), .request-form__options label.is-touch-pressed span { transform: none; }
+}

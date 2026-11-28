@@ -579,3 +579,55 @@ if ('IntersectionObserver' in window && !revealMedia.matches) {
   document.addEventListener('focusin', handleRevealFocus);
   revealMedia.addEventListener('change', handleRevealMotionChange);
 }
+
+// Touch feedback complements hover without intercepting clicks or page scrolling.
+let touchPressedControl = null;
+let touchPressedPointer = null;
+let touchReleaseTimer = 0;
+const clearTouchFeedback = () => {
+  window.clearTimeout(touchReleaseTimer);
+  touchPressedControl?.classList.remove('is-touch-pressed');
+  touchPressedControl?.style.removeProperty('--touch-magnet-x');
+  touchPressedControl?.style.removeProperty('--touch-magnet-y');
+  touchPressedControl = null;
+  touchPressedPointer = null;
+};
+const updateTouchMagnet = (event) => {
+  if (!touchPressedControl?.matches('.hero__button')) return;
+  const bounds = touchPressedControl.closest('.hero__magnet').getBoundingClientRect();
+  const x = Math.max(-14, Math.min(14, (event.clientX - bounds.left - bounds.width / 2) * .22));
+  const y = Math.max(-10, Math.min(10, (event.clientY - bounds.top - bounds.height / 2) * .22));
+  touchPressedControl.style.setProperty('--touch-magnet-x', `${x}px`);
+  touchPressedControl.style.setProperty('--touch-magnet-y', `${y - 3}px`);
+};
+const handleTouchPress = (event) => {
+  if (event.pointerType !== 'touch' && event.pointerType !== 'pen') return;
+  const control = event.target.closest('button, .request-form__options label');
+  if (!control || control.matches(':disabled')) return;
+  clearTouchFeedback();
+  touchPressedControl = control;
+  touchPressedPointer = event.pointerId;
+  control.classList.add('is-touch-pressed');
+  updateTouchMagnet(event);
+};
+const handleTouchMove = (event) => {
+  if (event.pointerId !== touchPressedPointer) return;
+  const bounds = touchPressedControl.getBoundingClientRect();
+  if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+    clearTouchFeedback();
+    return;
+  }
+  updateTouchMagnet(event);
+};
+const handleTouchRelease = (event) => {
+  if (event.pointerId !== touchPressedPointer) return;
+  touchReleaseTimer = window.setTimeout(clearTouchFeedback, 320);
+};
+const handleTouchCancel = (event) => {
+  if (event.pointerId === touchPressedPointer) clearTouchFeedback();
+};
+document.addEventListener('pointerdown', handleTouchPress, { passive: true });
+document.addEventListener('pointermove', handleTouchMove, { passive: true });
+document.addEventListener('pointerup', handleTouchRelease, { passive: true });
+document.addEventListener('pointercancel', handleTouchCancel, { passive: true });
+window.addEventListener('blur', clearTouchFeedback);
