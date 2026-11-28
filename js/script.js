@@ -475,3 +475,29 @@ if (heroVisual) {
   tiltMedia.addEventListener('change', resetHeroTilt);
   window.addEventListener('blur', resetHeroTilt);
 }
+
+const featuredPhoto = document.querySelector('.featured__photo');
+if (featuredPhoto) {
+  const parallaxImage = featuredPhoto.querySelector('img');
+  const parallaxMedia = window.matchMedia('(prefers-reduced-motion: no-preference)');
+  let parallaxFrame = 0;
+  const updateFeaturedParallax = () => {
+    parallaxFrame = 0;
+    if (!parallaxMedia.matches) {
+      parallaxImage.style.removeProperty('--featured-parallax');
+      return;
+    }
+    const bounds = featuredPhoto.getBoundingClientRect();
+    const progress = (window.innerHeight / 2 - bounds.top - bounds.height / 2) / ((window.innerHeight + bounds.height) / 2);
+    const offset = Math.max(-18, Math.min(18, progress * 18));
+    parallaxImage.style.setProperty('--featured-parallax', `${offset.toFixed(2)}px`);
+  };
+  const handleFeaturedParallax = () => {
+    if (parallaxFrame) return;
+    parallaxFrame = window.requestAnimationFrame(updateFeaturedParallax);
+  };
+  window.addEventListener('scroll', handleFeaturedParallax, { passive: true });
+  window.addEventListener('resize', handleFeaturedParallax);
+  parallaxMedia.addEventListener('change', handleFeaturedParallax);
+  updateFeaturedParallax();
+}
