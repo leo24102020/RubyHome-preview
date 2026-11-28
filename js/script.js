@@ -426,3 +426,29 @@ if (requestModal) {
   phoneInput.addEventListener('blur', handlePhoneValidation);
   phoneInput.addEventListener('beforeinput', handlePhoneBeforeInput);
 }
+
+// Measure the stationary wrapper so movement never feeds back into the pointer offset.
+const heroMagnet = document.querySelector('.hero__magnet');
+if (heroMagnet) {
+  const magneticButton = heroMagnet.querySelector('.hero__button');
+  const magneticMedia = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+  const resetMagneticButton = () => {
+    magneticButton.style.removeProperty('--magnet-x');
+    magneticButton.style.removeProperty('--magnet-y');
+  };
+  const handleMagneticMove = (event) => {
+    if (!magneticMedia.matches || event.pointerType !== 'mouse' || magneticButton.disabled) return;
+    const bounds = heroMagnet.getBoundingClientRect();
+    const x = Math.max(-14, Math.min(14, (event.clientX - bounds.left - bounds.width / 2) * .22));
+    const y = Math.max(-10, Math.min(10, (event.clientY - bounds.top - bounds.height / 2) * .22));
+    magneticButton.style.setProperty('--magnet-x', `${x}px`);
+    magneticButton.style.setProperty('--magnet-y', `${y}px`);
+  };
+  heroMagnet.addEventListener('pointermove', handleMagneticMove);
+  heroMagnet.addEventListener('pointerleave', resetMagneticButton);
+  heroMagnet.addEventListener('pointercancel', resetMagneticButton);
+  magneticButton.addEventListener('click', resetMagneticButton);
+  magneticButton.addEventListener('blur', resetMagneticButton);
+  magneticMedia.addEventListener('change', resetMagneticButton);
+  window.addEventListener('blur', resetMagneticButton);
+}
