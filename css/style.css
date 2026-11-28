@@ -579,3 +579,6 @@ button { transition: background-color .3s ease, color .3s ease, border-color .3s
 }
 
 @media (min-width: 480px) { .subscribe__button { transform-origin: right center; } }
+
+.request-modal { overflow-x: hidden; }
+.request-modal__close { transform-origin: top right; }
