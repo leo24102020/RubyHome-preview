@@ -561,3 +561,19 @@ body.has-request-modal { position: fixed; width: 100%; overflow: hidden; }
 .privacy__list { margin: 0 0 24px; padding: 0; list-style: none; }
 .privacy__list li { margin-bottom: 12px; }
 .privacy__text a { color: inherit; text-underline-offset: 3px; }
+
+/* Shared button hover without changing layout dimensions. */
+button { transition: background-color .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease, transform .3s ease; }
+@media (hover: hover) {
+  button:not(:disabled):hover { background-color: #fff; color: #2e6eff; border-color: #2e6eff; box-shadow: inset 0 0 0 1px #2e6eff; transform: scale(1.1); }
+  button.header__toggle:not(:disabled):hover, button.header__contact:not(:disabled):hover, button.hero__button:not(:disabled):hover { box-shadow: none; }
+  .reviews__pagination .swiper-pagination-bullet:hover { background-color: #fff; box-shadow: inset 0 0 0 1px #2e6eff; }
+  .request-modal__close:hover::before, .request-modal__close:hover::after { background-color: #2e6eff; }
+  .request-form__options label:hover span { background-color: #fff; color: #2e6eff; border-color: #2e6eff; transform: scale(1.1); }
+}
+.request-modal__close::before, .request-modal__close::after { transition: background-color .3s ease; }
+.request-form__options span { transition: background-color .3s ease, color .3s ease, border-color .3s ease, transform .3s ease; }
+@media (prefers-reduced-motion: reduce) {
+  button, .request-form__options span, .request-modal__close::before, .request-modal__close::after { transition: none; }
+  button:not(:disabled):hover, .request-form__options label:hover span { transform: none; }
+}
