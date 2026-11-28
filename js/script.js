@@ -501,3 +501,63 @@ if (featuredPhoto) {
   parallaxMedia.addEventListener('change', handleFeaturedParallax);
   updateFeaturedParallax();
 }
+
+// Progressive enhancement: content stays visible without JS or IntersectionObserver.
+const revealMedia = window.matchMedia('(prefers-reduced-motion: reduce)');
+if ('IntersectionObserver' in window && !revealMedia.matches) {
+  const revealElements = [...document.querySelectorAll([
+    '.hero__content > *', '.hero__visual',
+    '.partners__title', '.partners__item',
+    '.properties__title', '.properties__item',
+    '.featured__title', '.featured__description', '.featured__card', '.featured__photo',
+    '.reviews__eyebrow', '.reviews__title', '.reviews__slider',
+    '.subscribe__title', '.subscribe__description', '.subscribe__form',
+    '.footer__copyright', '.privacy__title', '.privacy__text > *',
+  ].join(','))];
+  const revealAnimations = new Map();
+  const revealDelays = new WeakMap();
+  const revealOpacities = new WeakMap();
+  const revealGroups = new Map();
+  const revealElement = (element, immediate = false) => {
+    if (!element.classList.contains('scroll-reveal--pending')) return;
+    revealObserver.unobserve(element);
+    element.classList.remove('scroll-reveal--pending');
+    if (immediate || revealMedia.matches) return;
+    // Individual translate preserves existing transforms (e.g. the Figma card offset).
+    const animation = element.animate([
+      { opacity: 0, translate: '0 24px' },
+      { opacity: revealOpacities.get(element), translate: '0 0' },
+    ], { duration: 600, delay: revealDelays.get(element) || 0, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+    revealAnimations.set(element, animation);
+    animation.finished.then(() => revealAnimations.delete(element)).catch(() => revealAnimations.delete(element));
+  };
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) revealElement(entry.target);
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -32px 0px' });
+  revealElements.forEach((element) => {
+    const groupIndex = revealGroups.get(element.parentElement) || 0;
+    revealGroups.set(element.parentElement, groupIndex + 1);
+    revealDelays.set(element, Math.min(groupIndex % 6, 3) * 70);
+    revealOpacities.set(element, getComputedStyle(element).opacity);
+    element.classList.add('scroll-reveal--pending');
+    revealObserver.observe(element);
+  });
+  const handleRevealFocus = (event) => {
+    const pending = event.target.closest('.scroll-reveal--pending');
+    if (pending) revealElement(pending, true);
+    // Keyboard navigation must not wait for an in-progress entrance animation.
+    revealAnimations.forEach((animation, element) => {
+      if (element.contains(event.target)) animation.finish();
+    });
+  };
+  const handleRevealMotionChange = () => {
+    if (!revealMedia.matches) return;
+    revealElements.forEach((element) => revealElement(element, true));
+    revealAnimations.forEach((animation) => animation.finish());
+    revealObserver.disconnect();
+  };
+  document.addEventListener('focusin', handleRevealFocus);
+  revealMedia.addEventListener('change', handleRevealMotionChange);
+}
