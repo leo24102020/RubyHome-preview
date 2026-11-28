@@ -518,28 +518,46 @@ if ('IntersectionObserver' in window && !revealMedia.matches) {
   const revealDelays = new WeakMap();
   const revealOpacities = new WeakMap();
   const revealGroups = new Map();
+  let previousRevealScroll = window.scrollY;
+  let isRevealScrollingDown = true;
+  const handleRevealDirection = () => {
+    const position = window.scrollY;
+    if (position !== previousRevealScroll) isRevealScrollingDown = position > previousRevealScroll;
+    previousRevealScroll = position;
+  };
+  window.addEventListener('scroll', handleRevealDirection, { passive: true });
   const revealElement = (element, immediate = false) => {
     if (!element.classList.contains('scroll-reveal--pending')) return;
-    revealObserver.unobserve(element);
     element.classList.remove('scroll-reveal--pending');
     if (immediate || revealMedia.matches) return;
     // Individual translate preserves existing transforms (e.g. the Figma card offset).
     const animation = element.animate([
-      { opacity: 0, translate: '0 24px' },
+      { opacity: 0, translate: '0 48px' },
       { opacity: revealOpacities.get(element), translate: '0 0' },
-    ], { duration: 600, delay: revealDelays.get(element) || 0, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
+    ], { duration: 800, delay: revealDelays.get(element) || 0, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' });
     revealAnimations.set(element, animation);
-    animation.finished.then(() => revealAnimations.delete(element)).catch(() => revealAnimations.delete(element));
+    const cleanupAnimation = () => {
+      if (revealAnimations.get(element) === animation) revealAnimations.delete(element);
+    };
+    animation.finished.then(cleanupAnimation).catch(cleanupAnimation);
   };
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) revealElement(entry.target);
+      if (entry.isIntersecting) {
+        revealElement(entry.target, !isRevealScrollingDown);
+        return;
+      }
+      // Re-arm only below the viewport, never as a block leaves through the top.
+      if (entry.boundingClientRect.top >= window.innerHeight && !entry.target.contains(document.activeElement)) {
+        revealAnimations.get(entry.target)?.cancel();
+        entry.target.classList.add('scroll-reveal--pending');
+      }
     });
-  }, { threshold: 0, rootMargin: '0px 0px -32px 0px' });
+  }, { threshold: 0, rootMargin: '0px' });
   revealElements.forEach((element) => {
     const groupIndex = revealGroups.get(element.parentElement) || 0;
     revealGroups.set(element.parentElement, groupIndex + 1);
-    revealDelays.set(element, Math.min(groupIndex % 6, 3) * 70);
+    revealDelays.set(element, Math.min(groupIndex % 6, 3) * 90);
     revealOpacities.set(element, getComputedStyle(element).opacity);
     element.classList.add('scroll-reveal--pending');
     revealObserver.observe(element);
