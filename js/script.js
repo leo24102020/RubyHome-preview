@@ -1,10 +1,10 @@
 const properties = [
-  { id: 'house-1', title: 'Sunny Family Home', price: '$5527.00', alt: 'Two-storey cream house with a balcony and green garden' },
-  { id: 'house-2', title: 'Modern Garden Villa', price: '$6727.00', alt: 'Contemporary white and wood villa with large windows and a garage' },
-  { id: 'house-3', title: 'Scandinavian Retreat', price: '$4327.00', alt: 'White homes with steep black pitched roofs' },
-  { id: 'house-4', title: 'Contemporary Residence', price: '$4427.00', alt: 'Modern two-storey residence with warm lighting at dusk' },
-  { id: 'house-5', title: 'Glass Terrace Villa', price: '$4527.00', alt: 'White villa with a glass balcony and orange facade details' },
-  { id: 'house-6', title: 'Classic Family House', price: '$5527.00', alt: 'Traditional family house with stone cladding and gabled roofs' },
+  { id: 'house-1', title: 'Capital hill residence', price: '$5527.00', alt: 'Two-storey cream house with a balcony and green garden' },
+  { id: 'house-2', title: 'Picket Fence Realty', price: '$6727.00', alt: 'Contemporary white and wood villa with large windows and a garage' },
+  { id: 'house-3', title: 'Banyon Tree Realty', price: '$4327.00', alt: 'White homes with steep black pitched roofs' },
+  { id: 'house-4', title: 'Corsair Real Estate', price: '$4427.00', alt: 'Modern two-storey residence with warm lighting at dusk' },
+  { id: 'house-5', title: 'Sequoia Real Estate', price: '$4527.00', alt: 'White villa with a glass balcony and orange facade details' },
+  { id: 'house-6', title: 'Strive Partners Realty', price: '$5527.00', alt: 'Traditional family house with stone cladding and gabled roofs' },
 ];
 
 const propertyGrid = document.querySelector('.properties__grid');
