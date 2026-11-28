@@ -577,3 +577,5 @@ button { transition: background-color .3s ease, color .3s ease, border-color .3s
   button, .request-form__options span, .request-modal__close::before, .request-modal__close::after { transition: none; }
   button:not(:disabled):hover, .request-form__options label:hover span { transform: none; }
 }
+
+@media (min-width: 480px) { .subscribe__button { transform-origin: right center; } }
