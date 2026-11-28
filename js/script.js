@@ -452,3 +452,26 @@ if (heroMagnet) {
   magneticMedia.addEventListener('change', resetMagneticButton);
   window.addEventListener('blur', resetMagneticButton);
 }
+
+const heroVisual = document.querySelector('.hero__visual');
+if (heroVisual) {
+  const heroImage = heroVisual.querySelector('.hero__image');
+  const tiltMedia = window.matchMedia('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)');
+  const resetHeroTilt = () => {
+    heroImage.style.removeProperty('--hero-tilt-x');
+    heroImage.style.removeProperty('--hero-tilt-y');
+  };
+  const handleHeroTilt = (event) => {
+    if (!tiltMedia.matches || event.pointerType !== 'mouse') return;
+    const bounds = heroVisual.getBoundingClientRect();
+    const horizontal = Math.max(-1, Math.min(1, (event.clientX - bounds.left) / bounds.width * 2 - 1));
+    const vertical = Math.max(-1, Math.min(1, (event.clientY - bounds.top) / bounds.height * 2 - 1));
+    heroImage.style.setProperty('--hero-tilt-x', `${-vertical * 6}deg`);
+    heroImage.style.setProperty('--hero-tilt-y', `${horizontal * 6}deg`);
+  };
+  heroVisual.addEventListener('pointermove', handleHeroTilt);
+  heroVisual.addEventListener('pointerleave', resetHeroTilt);
+  heroVisual.addEventListener('pointercancel', resetHeroTilt);
+  tiltMedia.addEventListener('change', resetHeroTilt);
+  window.addEventListener('blur', resetHeroTilt);
+}
