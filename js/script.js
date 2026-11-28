@@ -488,8 +488,8 @@ if (featuredPhoto) {
       return;
     }
     const bounds = featuredPhoto.getBoundingClientRect();
-    const progress = (window.innerHeight / 2 - bounds.top - bounds.height / 2) / ((window.innerHeight + bounds.height) / 2);
-    const offset = Math.max(-18, Math.min(18, progress * 18));
+    const distanceFromCenter = window.innerHeight / 2 - bounds.top - bounds.height / 2;
+    const offset = Math.max(-36, Math.min(36, distanceFromCenter * .12));
     parallaxImage.style.setProperty('--featured-parallax', `${offset.toFixed(2)}px`);
   };
   const handleFeaturedParallax = () => {

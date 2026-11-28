@@ -601,5 +601,5 @@ button { transition: background-color .3s ease, color .3s ease, border-color .3s
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .featured__photo img { top: -20px; height: calc(100% + 40px); transform: translateY(var(--featured-parallax, 0px)); }
+  .featured__photo img { top: -40px; height: calc(100% + 80px); transform: translateY(var(--featured-parallax, 0px)); }
 }
