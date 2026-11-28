@@ -1,14 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RubyHome</title>
-    <link rel="stylesheet" href="css/normalize.css">
+    <meta name="description" content="Explore RubyHome properties for buying, renting or selling a home. Request a callback from our real estate team.">
     <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/style.css?v=31">
     <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
-    <script src="js/script.js?v=17" defer></script>
+    <script src="js/properties.js?v=release-1" defer></script>
+    <script src="js/navigation.js?v=release-1" defer></script>
+    <script src="js/reviews.js?v=release-1" defer></script>
+    <script src="js/forms.js?v=release-1" defer></script>
+    <script src="js/effects.js?v=release-1" defer></script>
   </head>
   <body>
     <header class="header">
@@ -40,7 +44,7 @@
             <p class="hero__description">Buying a home is a life-changing experience, so shouldn’t your real estate agent be a life changer</p>
             <span class="hero__magnet"><button class="hero__button" type="button">Leave request</button></span>
           </div>
-          <div class="hero__visual"><img class="hero__image" src="assets/img/image.png" width="484" height="615" alt="Modern building with blue glass facades and yellow architectural details" fetchpriority="high"></div>
+          <div class="hero__visual"><img class="hero__image" src="assets/img/hero.png" width="484" height="615" alt="Modern building with blue glass facades and yellow architectural details" fetchpriority="high"></div>
         </div>
       </section>
       <section class="partners" aria-labelledby="partners-title" lang="en">
@@ -48,19 +52,19 @@
           <h2 class="partners__title" id="partners-title">Our Partners</h2>
           <ul class="partners__list">
             <li class="partners__item">
-              <img class="partners__logo" src="assets/img/C1rvyMVdu8-removebg-preview%20(1)%202.png" width="129" height="70" alt="Biotech development" loading="lazy">
+              <img class="partners__logo" src="assets/img/partner-biotech.png" width="129" height="70" alt="Biotech development" loading="lazy">
             </li>
             <li class="partners__item">
-              <img class="partners__logo" src="assets/img/jaFnKKhNc2-removebg-preview%202.png" width="202" height="70" alt="Express" loading="lazy">
+              <img class="partners__logo" src="assets/img/partner-express.png" width="202" height="70" alt="Express" loading="lazy">
             </li>
             <li class="partners__item">
-              <img class="partners__logo" src="assets/img/PejBEGRRHr-removebg-preview%20(1)%201.png" width="87" height="70" alt="Smilehome" loading="lazy">
+              <img class="partners__logo" src="assets/img/partner-smilehome.png" width="87" height="70" alt="Smilehome" loading="lazy">
             </li>
             <li class="partners__item">
-              <img class="partners__logo" src="assets/img/qGcJsIZ3cy-removebg-preview%20(1)%203.png" width="162" height="70" alt="Connect" loading="lazy">
+              <img class="partners__logo" src="assets/img/partner-connect.png" width="162" height="70" alt="Connect" loading="lazy">
             </li>
             <li class="partners__item">
-              <img class="partners__logo" src="assets/img/6L21Bmus4K-removebg-preview%20(1)%202.png" width="153" height="70" alt="Homebuild" loading="lazy">
+              <img class="partners__logo" src="assets/img/partner-homebuild.png" width="153" height="70" alt="Homebuild" loading="lazy">
             </li>
           </ul>
         </div>
@@ -122,35 +126,35 @@
           <div class="swiper reviews__slider" role="region" aria-label="Customer reviews">
             <div class="swiper-wrapper">
               <article class="swiper-slide reviews__card" aria-label="Review 1">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Justin%20Lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/justin-lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought<br>Bringing It All Together.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 2">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Angel%20Cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/angel-cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought be<br>Bringing It All Together there.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 3">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Justin%20Lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/justin-lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought<br>Bringing It All Together.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 4">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Angel%20Cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/angel-cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought be<br>Bringing It All Together there.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 5">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Justin%20Lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/justin-lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought<br>Bringing It All Together.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 6">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Angel%20Cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/angel-cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought be<br>Bringing It All Together there.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 7">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Justin%20Lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/justin-lee.png" width="74" height="74" alt="Justin Lee" loading="lazy" draggable="false"><div><h3 class="reviews__name">Justin Lee</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought<br>Bringing It All Together.</blockquote>
               </article>
               <article class="swiper-slide reviews__card" aria-label="Review 8">
-                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/Angel%20Cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
+                <div class="reviews__author"><img class="reviews__avatar" src="assets/img/angel-cathe.png" width="74" height="74" alt="Angel Cathe" loading="lazy" draggable="false"><div><h3 class="reviews__name">Angel Cathe</h3><p class="reviews__role">Products Designer at Ito</p></div><img class="reviews__quote" src="assets/img/review-quote.svg" width="64" height="57" alt="" aria-hidden="true" draggable="false"></div>
                 <blockquote class="reviews__text">A good real estate agent doesn’t disappear once the closing IN signed.Buying a bigger home doesn’t necessarily mean spendi more money.Been there. Done that. Sold. Bought be<br>Bringing It All Together there.</blockquote>
               </article>
             </div>
